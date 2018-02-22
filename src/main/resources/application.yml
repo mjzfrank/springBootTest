@@ -7,3 +7,9 @@
     #    encoding: UTF-8
     #    content-type: text/html
     #    注释的部分是Thymeleaf默认的配置，如有其它需求可以自行更改
+      datasource:
+        url: jdbc:mysql://localhost:3306/test
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: 19930107
+
