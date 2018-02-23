@@ -28,7 +28,7 @@ class GlobalExceptionHandler {
     @ExceptionHandler(value = MyException.class)
     @ResponseBody
     public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, MyException e) throws Exception {
-        ErrorInfo<String> r = new ErrorInfo<>();
+        ErrorInfo<String> r = new ErrorInfo<String>();
         r.setMessage(e.getMessage());
         r.setCode(ErrorInfo.ERROR);
         r.setData("Some Data");

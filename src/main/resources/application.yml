@@ -1,5 +1,6 @@
    spring:
       thymeleaf:
+      #模版
         cache: false
     #    prefix: classpath:/templates/
     #    suffix: .html
@@ -8,8 +9,25 @@
     #    content-type: text/html
     #    注释的部分是Thymeleaf默认的配置，如有其它需求可以自行更改
       datasource:
+      #数据库
         url: jdbc:mysql://localhost:3306/test
         driver-class-name: com.mysql.jdbc.Driver
         username: root
         password: 19930107
-
+      redis:
+      #缓存
+        database: 0
+        host: 192.168.1.37
+        port: 6379
+        timeout: 0
+        password:
+        pool:
+          #最大连接数
+          max-active: 8
+          #没有等待限制
+          max-wait: -1
+          #最大空闲连接数
+          max-idle: 8
+          #最小空闲连接数
+          min-idle: 0
+        #连接超时时间（毫秒）

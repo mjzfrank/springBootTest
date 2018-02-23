@@ -1,12 +1,21 @@
 package com.wlg.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2018/2/22.
  */
-public class User {
+public class User implements Serializable{
+    private static final long serialVersionUID = -1L;
+
     private Long id;
     private String name;
     private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
