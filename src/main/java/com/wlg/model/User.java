@@ -1,21 +1,11 @@
 package com.wlg.model;
 
-import java.io.Serializable;
-
-/**
- * Created by Administrator on 2018/2/22.
- */
-public class User implements Serializable{
-    private static final long serialVersionUID = -1L;
-
+public class User {
     private Long id;
-    private String name;
-    private int age;
 
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+    private String name;
+
+    private Integer age;
 
     public Long getId() {
         return id;
@@ -30,14 +20,14 @@ public class User implements Serializable{
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

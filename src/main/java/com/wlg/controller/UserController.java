@@ -1,19 +1,25 @@
 package com.wlg.controller;
 
+import com.wlg.mapper.UserMapper;
 import com.wlg.model.User;
+import com.wlg.service.UserService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jnlp.UnavailableServiceException;
 import java.util.*;
 
 /**
  * Created by Administrator on 2018/2/22.
  */
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/user")
 public class UserController {
+    @Autowired
+    private UserService userService;
 
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long,User>());
     @ApiOperation(value="获取用户列表", notes="")
@@ -56,6 +62,16 @@ public class UserController {
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public String deleteUser(@PathVariable Long id) {
         users.remove(id);
+        return "success";
+    }
+
+    @RequestMapping("/insert")
+    public String insertUserTest(){
+        User u = new User();
+//        u.setId(2L);
+        u.setAge(20);
+        u.setName("牛逼");
+        userService.insert(u);
         return "success";
     }
 }

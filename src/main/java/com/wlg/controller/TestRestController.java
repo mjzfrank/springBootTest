@@ -40,9 +40,10 @@ public class TestRestController {
     @RequestMapping(value = "/redis/string", method = RequestMethod.GET)
     public void insertString() {
         stringRedisTemplate.opsForValue().set("stringKey", "stringValue");
-        User u = new User("蜘蛛侠",26);
-        User u2 = new User("钢铁侠",26);
+        User u = new User();
+        u.setName("蜘蛛侠");
+        u.setId(1L);
+        u.setAge(20);
         redisTemplate.opsForValue().set(u.getName(),u);
-        redisTemplate.opsForValue().set(u2.getName(),u2);
     }
 }
