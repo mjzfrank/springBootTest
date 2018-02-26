@@ -1,11 +1,9 @@
 package com.wlg.core;
 
 import org.apache.log4j.Logger;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Administrator on 2018/2/26.
