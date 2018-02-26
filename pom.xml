@@ -104,6 +104,12 @@
 			<!--<artifactId>spring-boot-starter-redis</artifactId>-->
 			<artifactId>spring-boot-starter-data-redis</artifactId><!--1.4版本以后-->
 		</dependency>
+
+		<!--面线切面aop-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
