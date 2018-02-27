@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.concurrent.Future;
@@ -19,8 +21,12 @@ public class ApplicationTests {
     @Autowired
     private Task task;
 
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    /*测试多线程*/
     @Test
-    public void test() throws Exception {
+    public void testTask() throws Exception {
         long start = System.currentTimeMillis();
         Future<String> task1 = task.doTaskOne();
         Future<String> task2 = task.doTaskTwo();
@@ -36,4 +42,14 @@ public class ApplicationTests {
         System.out.println("任务全部完成，总耗时：" + (end - start) + "毫秒");
     }
 
+    /*测试邮件*/
+    @Test
+    public void testJavaMailSender() throws Exception {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("317498820@qq.com");
+        message.setTo("947604931@qq.com");
+        message.setSubject("主题：简单邮件");
+        message.setText("测试邮件内容");
+        javaMailSender.send(message);
+    }
 }
