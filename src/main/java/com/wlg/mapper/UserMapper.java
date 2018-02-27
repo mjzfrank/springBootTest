@@ -3,11 +3,8 @@ package com.wlg.mapper;
 import com.wlg.model.User;
 import com.wlg.model.UserExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
 public interface UserMapper {
     int countByExample(UserExample example);
 
