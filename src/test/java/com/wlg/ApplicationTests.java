@@ -1,6 +1,7 @@
 package com.wlg;
 
 import com.wlg.core.Task;
+import com.wlg.core.rabbitmq.Sender;
 import javafx.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +24,9 @@ public class ApplicationTests {
 
     @Autowired
     private JavaMailSender javaMailSender;
+
+    @Autowired
+    private Sender sender;
 
     /*测试多线程*/
     @Test
@@ -51,5 +55,11 @@ public class ApplicationTests {
         message.setSubject("主题：简单邮件");
         message.setText("测试邮件内容");
         javaMailSender.send(message);
+    }
+
+    /*测试rabbitMq*/
+    @Test
+    public void hello() throws Exception {
+        sender.send2();
     }
 }
